@@ -13,6 +13,7 @@ def main():
     vending_machine.display_stock()
     vending_machine.get_state()
     vending_machine.select_item(1)
+    vending_machine.collect_cash(100)
 
 
     # TODO: add CLI

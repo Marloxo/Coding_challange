@@ -14,10 +14,10 @@ class VendingMachine():
         self.collected_cash = 0
         self.selected_item = None
         self.current_state = None
-        self.stocks = { 1: {'coke': 6},
-                            2: {'sprite': 7},
-                            3: {'ice_lemon_tea': 12},
-                            4: {'fanta_grape':16}
+        self.stocks = { 1: {'item': 'coke', 'price': 6},
+                        2: {'item': 'sprite', 'price': 7},
+                        3: {'item': 'ice_lemon_tea', 'price': 12},
+                        4: {'item': 'fanta_grape', 'price': 16},
                         }
         self.allowed_coins = [1,2,5,10,20,50]
 

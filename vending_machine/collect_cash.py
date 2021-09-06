@@ -13,15 +13,19 @@ class CollectCash(State):
 
     def collect_cash(self, amount) -> None:
         print("Task CollectCash")
-        if amount not in self.vending_machine.allowed_coins:
-            raise ValueError("Invalid coin")
 
-        self.vending_machine.collected_cash += amount
-        print(f"Total CollectCash: {self.vending_machine.collected_cash}")
+        try:
+            if amount not in self.vending_machine.allowed_coins:
+                raise ValueError(f"Invalid coin: {amount}")
 
-        if self.vending_machine.collected_cash >= self.vending_machine.selected_item[0]:
-            self.set_state(self, self.dispenseItem)
-            self.vending_machine.dispense_item()
+            self.vending_machine.collected_cash += amount
+            print(f"Total CollectCash: {self.vending_machine.collected_cash}")
+
+            if self.vending_machine.collected_cash >= self.vending_machine.selected_item['price']:
+                self.set_state(self, self.dispenseItem)
+                self.vending_machine.dispense_item()
+        except Exception as e:
+            print(f'An exception occurred while collecting cash: {str(e)}')
 
 
     def dispense_item(self) -> None:

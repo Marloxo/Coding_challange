@@ -20,12 +20,11 @@ class SelectItem(State):
                 raise RuntimeError(f'Item productCode: {productCode} Not Found')
 
             self.vending_machine.selected_item = selected_item
+            self.vending_machine.set_state(self.vending_machine.collectCash)
             print(f"item {self.vending_machine.selected_item} selected")
 
         except Exception as e:
             print(f'An exception occurred while selecting item: {str(e)}')
-
-        self.vending_machine.set_state(self.vending_machine.collectCash)
 
 
     def collect_cash(self, amount) -> None:
