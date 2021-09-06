@@ -8,16 +8,16 @@ class SelectItem(State):
         self.vending_machine.set_state(self.vending_machine.displayStock)
 
 
-    def select_item(self, productCode) -> None:
+    def select_item(self, product_code) -> None:
         print("Task SelectItem")
         try:
-            if productCode not in self.vending_machine.stocks:
-                raise ValueError(f'Invalid productCode: {productCode}')
+            if product_code not in self.vending_machine.stocks:
+                raise ValueError(f'Invalid product Code: {product_code}')
 
-            selected_item = self.vending_machine.stocks.get(productCode, None)
+            selected_item = self.vending_machine.stocks.get(product_code, None)
 
             if not selected_item:
-                raise RuntimeError(f'Item productCode: {productCode} Not Found')
+                raise RuntimeError(f'Item product Code: {product_code} Not Found')
 
             self.vending_machine.selected_item = selected_item
             print(f"item {self.vending_machine.selected_item} selected")

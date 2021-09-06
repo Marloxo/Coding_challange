@@ -7,7 +7,7 @@ class CancelTransaction(State):
         raise RuntimeError(f"Can't display stock in a cancelled transaction")
 
 
-    def select_item(self, productCode) -> None:
+    def select_item(self, product_code) -> None:
         raise RuntimeError(f"Can't select item in a cancelled transaction")
 
 

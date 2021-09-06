@@ -7,7 +7,7 @@ class DispenseChange(State):
         raise RuntimeError(f"Can't display stock in dispense change state")
 
 
-    def select_item(self, productCode) -> None:
+    def select_item(self, product_code) -> None:
         raise RuntimeError(f"Can't select item in dispense change state")
 
 
@@ -21,7 +21,14 @@ class DispenseChange(State):
 
     def dispense_change(self) -> None:
         print("Dispensing change")
+        remaining_amount = self.vending_machine.collected_cash - self.vending_machine.selected_item['price']
+        if remaining_amount:
+            print(f"returning {remaining_amount} cash")
+        else:
+            print(f"No remaining amount")
+
         self.vending_machine.collected_cash = 0
+        self.vending_machine.selected_item = None
         self.vending_machine.set_state(self.vending_machine.idle)
 
 

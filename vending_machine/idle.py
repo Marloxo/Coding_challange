@@ -8,7 +8,7 @@ class Idle(State):
         self.vending_machine.display_stock()
 
 
-    def select_item(self, productCode) -> None:
+    def select_item(self, product_code) -> None:
         self.vending_machine.set_state(self.vending_machine.selectItem)
         self.vending_machine.select_item()
 

@@ -13,9 +13,9 @@ def main():
     vending_machine.display_stock()
     vending_machine.get_state()
     vending_machine.select_item(1)
-    vending_machine.collect_cash(2)
+    vending_machine.collect_cash(50)
 
-    vending_machine.cancel_transaction()
+    # vending_machine.cancel_transaction()
 
     vending_machine.get_collected_cash()
     vending_machine.get_selected_item()

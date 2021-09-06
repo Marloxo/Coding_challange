@@ -7,7 +7,7 @@ class DispenseItem(State):
         raise RuntimeError(f"Can't display stock in dispense Item state")
 
 
-    def select_item(self, productCode) -> None:
+    def select_item(self, product_code) -> None:
         raise RuntimeError(f"Can't select item in dispense Item state")
 
 
@@ -16,8 +16,7 @@ class DispenseItem(State):
 
 
     def dispense_item(self) -> None:
-        print("Task DispenseItem")
-        self.vending_machine.selected_item = None
+        print(f"Dispensing item {self.vending_machine.selected_item['item']}")
 
         self.vending_machine.set_state(self.vending_machine.dispenseChange)
         self.vending_machine.dispense_change()

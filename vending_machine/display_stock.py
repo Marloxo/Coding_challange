@@ -9,9 +9,9 @@ class DisplayStock(State):
         print(self.vending_machine.stocks)
 
 
-    def select_item(self, productCode) -> None:
+    def select_item(self, product_code) -> None:
         self.vending_machine.set_state(self.vending_machine.selectItem)
-        self.vending_machine.select_item(productCode)
+        self.vending_machine.select_item(product_code)
 
 
     def collect_cash(self, amount) -> None:

@@ -16,7 +16,7 @@ class State(ABC):
         pass
 
     @abstractmethod
-    def select_item(self, productCode) -> None:
+    def select_item(self, product_code) -> None:
         pass
 
     @abstractmethod

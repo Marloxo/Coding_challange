@@ -7,7 +7,7 @@ class CollectCash(State):
         raise RuntimeError(f"Can't display stock in a collect cash state")
 
 
-    def select_item(self, productCode) -> None:
+    def select_item(self, product_code) -> None:
         raise RuntimeError(f"Can't select item in a collect cash state")
 
 
