@@ -19,10 +19,10 @@ class CollectCash(State):
                 raise ValueError(f"Invalid coin: {amount}")
 
             self.vending_machine.collected_cash += amount
-            print(f"Total CollectCash: {self.vending_machine.collected_cash}")
+            print(f"Total Collected Cash: {self.vending_machine.collected_cash}")
 
             if self.vending_machine.collected_cash >= self.vending_machine.selected_item['price']:
-                self.set_state(self, self.dispenseItem)
+                self.vending_machine.set_state(self.vending_machine.dispenseItem)
                 self.vending_machine.dispense_item()
         except Exception as e:
             print(f'An exception occurred while collecting cash: {str(e)}')
@@ -37,6 +37,6 @@ class CollectCash(State):
 
 
     def cancel_transaction(self) -> None:
-        self.set_state(self, self.cancelTransaction)
+        self.vending_machine.set_state(self.vending_machine.cancelTransaction)
         self.vending_machine.cancel_transaction()
 

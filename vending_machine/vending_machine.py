@@ -39,8 +39,11 @@ class VendingMachine():
         self.current_state = state
         self.current_state.vending_machine = self
 
-    def getCollectedCash(self):
-        return self.collected_cash
+    def get_collected_cash(self):
+        print(f"Total collected cash: {self.collected_cash}")
+
+    def get_selected_item(self):
+        print(f"Selected item: {self.selected_item}")
 
 
     def display_stock(self):
