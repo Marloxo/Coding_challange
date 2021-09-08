@@ -2,17 +2,17 @@ from __future__ import annotations
 from vending_machine.state import State
 import logging
 
+
 class SelectItem(State):
 
     def display_stock(self) -> None:
         self.vending_machine.set_state(self.vending_machine.displayStock)
 
-
     def select_item(self, product_code) -> None:
-        logging.debug("Task SelectItem")
+        logging.debug('Task SelectItem')
         try:
             if not product_code.isdigit():
-                raise ValueError(f"Invalid product Code: ({product_code}), please enter valid product number")
+                raise ValueError(f'Invalid product Code: ({product_code}), please enter valid product number')
 
             product_code = int(product_code)
             if product_code not in self.vending_machine.stocks:
@@ -30,18 +30,14 @@ class SelectItem(State):
         except Exception as e:
             logging.critical(f'An exception of type {type(e).__name__} occurred. {str(e)}')
 
-
     def collect_cash(self, amount) -> None:
-        logging.critical(f"Can't collect cash in select item state")
-
+        logging.critical("Can't collect cash in select item state")
 
     def dispense_item(self) -> None:
-        logging.critical(f"Can't dispense item in select item state")
-
+        logging.critical("Can't dispense item in select item state")
 
     def dispense_change(self) -> None:
-        logging.critical(f"Can't dispense change in select item state")
-
+        logging.critical("Can't dispense change in select item state")
 
     def cancel_transaction(self) -> None:
-        logging.critical(f"Can't cancel transaction in select item state")
+        logging.critical("Can't cancel transaction in select item state")

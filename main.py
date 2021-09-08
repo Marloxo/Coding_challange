@@ -1,7 +1,5 @@
-import argparse
 import logging
 import sys
-import textwrap
 from vending_machine.vending_machine import VendingMachine
 
 # TODO: add documentation readme /requirements. python3.6+
@@ -11,7 +9,6 @@ LOG_FORMAT = '%(message)s'
 
 
 def display_menu(vending_machine):
-    mylist = []
     operation = input('''Select operation:
     [1] List Available Snacks
     [2] Select a Snack
@@ -23,7 +20,7 @@ def display_menu(vending_machine):
 >> ''')
 
     if operation == '1':
-        logging.info("list of available snacks: ")
+        logging.info('list of available snacks:')
         vending_machine.display_stock()
 
     elif operation == '2':
@@ -37,20 +34,20 @@ def display_menu(vending_machine):
         vending_machine.collect_cash(amount)
 
     elif operation == '4':
-        logging.info(f"Total collected cash: {vending_machine.get_collected_cash()}$")
+        logging.info(f'Total collected cash: {vending_machine.get_collected_cash()}$')
 
     elif operation == '5':
         selected_item = vending_machine.get_selected_item()
         if selected_item:
             logging.info(f"Selected item: '{selected_item['name']}' with price of ({selected_item['price']}$)")
         else:
-            logging.info("No item has been selected, please select item first")
+            logging.info('No item has been selected, please select item first')
 
     elif operation == '6':
         vending_machine.cancel_transaction()
 
     elif operation == '7':
-        logging.info(f"VM currently in {type(vending_machine.get_state()).__name__} state")
+        logging.info(f'VM currently in {type(vending_machine.get_state()).__name__} state')
 
     else:
         logging.info('You have not chosen a valid option, please try again.')
