@@ -7,6 +7,7 @@ from vending_machine.collect_cash import CollectCash
 from vending_machine.dispense_item import DispenseItem
 from vending_machine.dispense_change import DispenseChange
 from vending_machine.cancel_transaction import CancelTransaction
+import logging
 
 class VendingMachine():
 
@@ -14,10 +15,10 @@ class VendingMachine():
         self.collected_cash = 0
         self.selected_item = None
         self.current_state = None
-        self.stocks = { 1: {'item': 'coke', 'price': 6},
-                        2: {'item': 'sprite', 'price': 7},
-                        3: {'item': 'ice_lemon_tea', 'price': 12},
-                        4: {'item': 'fanta_grape', 'price': 16},
+        self.stocks = { 1: {'name': 'Coke', 'price': 6},
+                        2: {'name': 'Sprite', 'price': 7},
+                        3: {'name': 'Ice Lemon Tea', 'price': 12},
+                        4: {'name': 'Fanta Grape', 'price': 16},
                         }
         self.allowed_coins = [1,2,5,10,20,50]
 
@@ -31,19 +32,22 @@ class VendingMachine():
 
         self.set_state(self.idle)
 
-    def get_state(self):
-        print(f"VM is in {type(self.current_state).__name__}")
-
-    def set_state(self, state):
-        print(f"{type(self.current_state).__name__} -> {type(state).__name__}")
-        self.current_state = state
-        self.current_state.vending_machine = self
+    def get_allowed_coins(self):
+        return self.allowed_coins
 
     def get_collected_cash(self):
-        print(f"Total collected cash: {self.collected_cash}")
+        return self.collected_cash
 
     def get_selected_item(self):
-        print(f"Selected item: {self.selected_item}")
+        return self.selected_item
+
+    def get_state(self):
+        return self.current_state
+
+    def set_state(self, state):
+        logging.debug(f"{type(self.current_state).__name__} -> {type(state).__name__}")
+        self.current_state = state
+        self.current_state.vending_machine = self
 
 
     def display_stock(self):
