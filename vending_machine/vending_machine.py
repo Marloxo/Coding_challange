@@ -16,10 +16,12 @@ class VendingMachine():
         self.selected_item = None
         self.current_state = None
         self.stocks = {
-            1: {'name': 'Coke', 'price': 6},
-            2: {'name': 'Sprite', 'price': 7},
-            3: {'name': 'Ice Lemon Tea', 'price': 12},
-            4: {'name': 'Fanta Grape', 'price': 16},
+            1: {'name': 'Cheetos', 'price': 6},
+            2: {'name': 'Twix', 'price': 7},
+            3: {'name': 'Kit Kat', 'price': 12},
+            4: {'name': 'Snickers', 'price': 16},
+            5: {'name': 'Lindor', 'price': 14},
+            6: {'name': 'Ferrero Rocher', 'price': 25},
         }
         self.allowed_coins = [1, 2, 5, 10, 20, 50]
 

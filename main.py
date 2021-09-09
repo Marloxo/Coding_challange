@@ -2,11 +2,8 @@ import logging
 import sys
 from vending_machine.vending_machine import VendingMachine
 
-# TODO: add documentation readme /requirements. python3.6+
-
 
 LOG_FORMAT = '%(message)s'
-
 
 def display_menu(vending_machine):
     operation = input('''Select operation:
@@ -71,9 +68,6 @@ def main():
 
     vending_machine = VendingMachine()
     display_menu(vending_machine)
-    # TODO: documentation
-
-
 
 
 if __name__ == '__main__':
