@@ -2,10 +2,10 @@
 
 ## Vending Machine Design
 
-So starting with assumption for simple vending machines design, we will assume the machine start by:
-User start interacting with the machine by checking list of snacks/prices, select a snack, put money into the machine and receive money back etc.
+Starting with an assumption for a simple vending machines design, we are going to assume that the machine starts by:
+User starts interacting with the machine by checking list of snacks/prices, selecting a snack, putting money into the machine and receiving balance money back etc.
 
-So in the following order:
+The following is the order:
 
 ```
 list snacks -> select snack -> receive money (for example only 1$, 2$, 5$ until money inserted >= price)
@@ -26,16 +26,16 @@ Following is a UML representation of the Activity diagram:
 
 ## Create a Skeleton Implementation
 
-So based on the presented requirements, we would be start thinking of possible solutions in order for us to implement the system.
+So based on the presented requirements, we would start thinking of possible solutions in order for us to implement the system.
 
-the first solution may come to my mind would be considering having VendingMachine class with different methods for user interaction with the system, the limitation with this design it will require switch case block in each system method, in addition to a lot of code redundancy.
+the first solution that comes to my mind would be considering having VendingMachine class with different methods for user interaction with the system. The limitation with this design is that it will require switch case block in each system method, in addition to a lot of code redundancy. This condition will make it hard to maintain the system, especially with a high change of error prone.
 
-Which make it hard to maintain and with high change of error prone.
-So instead we would need to implement a solution to encapsulated all the business logic, with respect to SOLID principles, in way introducing new functionality wouldn't require modifications of behavior of the current classes.
-So we would start by declare a state interface which exposes the main functionalities:
+So the other alternative, we would need to implement a solution to encapsulated all the business logic instead, with respect to the SOLID principles. In a way, introducing new functionality would not require modifications of behavior of the current classes.
+
+We are going to start by declaring a state interface which exposes the main functionalities:
 **idle**, **display_stock**, **select_item**, **collect_cash**, **dispense_item**, **dispense_change**, **cancel_transaction**
 
-All of these states will be implementing the state interface, and we will be having `Vending Machine` class which will be the context handle the management for system and instance reference.
+All of these states will be implementing the state interface, and we will be having `Vending Machine` class which will be the context that handles the management for system and instance reference.
 
 With the following class diagram:
 
